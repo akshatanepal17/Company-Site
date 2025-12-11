@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/react';
 function Homenav(){
     return(
         <>
-        <div className="min-h-screen bg-gray-100">
+        <div className="bg-gray-100">
             
             {/* Navbar */}
             <nav className="bg-white shadow-md">
@@ -33,11 +33,7 @@ function Homenav(){
                 </div>
               </div>
             </nav>
-
-            {/* Main Content */}
-            <div className="container mx-auto px-6 py-10">
-              <h1 className="text-3xl font-bold text-gray-800 mb-4">Welcome to Best Nepal</h1>
-            </div>
+            
           </div>
         </>
     );

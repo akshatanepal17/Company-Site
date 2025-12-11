@@ -1,3 +1,4 @@
+import Banner from '@/Components/custom-components/banner';
 import Homenav from '@/Components/custom-components/homenav';
 import { Link, Head } from '@inertiajs/react';
 
@@ -6,6 +7,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         <>
           <Head title="Home" />
           <Homenav/>
+          <Banner/>
         </>
     );
 }
