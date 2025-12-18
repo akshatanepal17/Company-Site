@@ -5,7 +5,8 @@ import { Link, Head } from '@inertiajs/react';
 import DesignDevelopmentSection from '@/Components/custom-components/design-development-section';
 import Ecommerce from '@/Components/custom-components/ecommerce';
 import Services from '@/Components/custom-components/services';
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
+import Success from '@/Components/custom-components/success';
+export default function Welcome() {
     return (
         <>
           <Head title="Home" />
@@ -13,7 +14,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
           <Banner/>
           <DesignDevelopmentSection/>
           <Ecommerce/>
-          <Services/>        
+          <Services/> 
+          <Success/>    
           <Footer/>
         </>
     );
