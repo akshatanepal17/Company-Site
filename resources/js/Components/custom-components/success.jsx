@@ -10,7 +10,7 @@ function Success() {
           </h2>
         </div>
       
-        <div className="flex flex-cols-1 sm:grid-cols-3 gap-6">
+        <div className="flex flex-cols sm:flex-cols-3 gap-6">
           
           <div className="bg-[#2E2E2E] text-white rounded-xl px-8 py-6 text-center min-w-[160px]">
             <h3 className="text-2xl font-bold">19+</h3>
