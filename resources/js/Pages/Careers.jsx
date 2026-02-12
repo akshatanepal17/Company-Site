@@ -1,14 +1,11 @@
-import Homenav from "@/Components/custom-components/homenav";
-import Footer from "@/Components/custom-components/footer";
-import { Phone, Mail, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 function Career() {
     return (
         <>
-            <Homenav />
             <div className="w-full relative">
-              
-                <div   style={{ backgroundImage: "url('/images/Careers.png')" }} className="w-full bg-gradient-to-br from-[#BFD3E6] via-[#B5CCE3] to-[#AFC8E1] px-10 md:px-24 py-20"> 
+
+                <div   style={{ backgroundImage: "url('/images/Careers.png')" }} className="w-full bg-gradient-to-br from-[#BFD3E6] via-[#B5CCE3] to-[#AFC8E1] px-10 md:px-24 py-20">
                     <div className="max-w-7xl mx-auto">
                         <h1 className="text-4xl font-bold text-black mb-4">
                             Our Career
@@ -58,7 +55,7 @@ function Career() {
                         </div>
 
                     </div>
-                </div> 
+                </div>
             </div>
 
             <div className="w-full  bg-[#0B4A78] px-10 md:px-24 py-20">
@@ -85,7 +82,6 @@ function Career() {
                     </div>
                 </div>
             </div >
-            <Footer />
         </>
     );
 }

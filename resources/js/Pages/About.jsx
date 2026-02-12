@@ -1,10 +1,7 @@
-import Homenav from "@/Components/custom-components/homenav";
-import Footer from "@/Components/custom-components/footer";
 
 function About() {
     return (
         <>
-            <Homenav />
 
 
             <div className="relative min-h-screen w-full flex flex-col gap-10">
@@ -121,7 +118,6 @@ function About() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

@@ -1,11 +1,8 @@
-import Homenav from "@/Components/custom-components/homenav";
-import Footer from "@/Components/custom-components/footer";
-import { Phone, Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 function Contact() {
     return (
         <>
-            <Homenav />
 
             <div className="w-full bg-gradient-to-r from-[#1E3D58] to-[#057DCD] p-20">
                 <div className="mb-16">
@@ -66,7 +63,6 @@ function Contact() {
                 </div>
             </div>
 
-            <Footer />
         </>
     );
 }

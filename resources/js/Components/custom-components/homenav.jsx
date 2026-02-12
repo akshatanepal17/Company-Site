@@ -1,11 +1,11 @@
 import { Phone } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import { Link } from 'react-router-dom';
 
 function Homenav(){
     return(
         <>
         <div className="bg-gray-100">
-            
+
             {/* Navbar */}
             <nav className="bg-white shadow-md">
               <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -17,11 +17,11 @@ function Homenav(){
 
                 {/* Navigation Links */}
                 <div className="hidden md:flex space-x-8">
-                  <Link href="/" className="text-gray-700 hover:text-indigo-600">Home</Link>
-                  <Link href="/about" className="text-gray-700 hover:text-indigo-600">About Us</Link>
-                  <Link href="/portfolio" className="text-gray-700 hover:text-indigo-600">Portfolio</Link>
-                  <Link href="/contact" className="text-gray-700 hover:text-indigo-600">Contact</Link>
-                  <Link href="/careers" className="text-gray-700 hover:text-indigo-600">Careers</Link>
+                  <Link to="/" className="text-gray-700 hover:text-indigo-600">Home</Link>
+                  <Link to="/about" className="text-gray-700 hover:text-indigo-600">About Us</Link>
+                  <Link to="/portfolio" className="text-gray-700 hover:text-indigo-600">Portfolio</Link>
+                  <Link to="/contact" className="text-gray-700 hover:text-indigo-600">Contact</Link>
+                  <Link to="/careers" className="text-gray-700 hover:text-indigo-600">Careers</Link>
                 </div>
 
                 {/* Contact Info */}
@@ -33,7 +33,7 @@ function Homenav(){
                 </div>
               </div>
             </nav>
-            
+
           </div>
         </>
     );
