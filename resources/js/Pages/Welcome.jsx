@@ -9,7 +9,7 @@ import Success from '@/Components/custom-components/success';
 export default function Welcome() {
     return (
         <>
-          <Head title="Home" />
+          <Head title="Home"/>
           <Homenav/>
           <Banner/>
           <DesignDevelopmentSection/>

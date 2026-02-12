@@ -1,6 +1,6 @@
 function Success() {
   return (
-    <div className="w-full bg-black py-16">  
+    <div className="w-full bg-black py-16 my-16">  
       <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-12">
     
         <div className="text-white max-w-md">
