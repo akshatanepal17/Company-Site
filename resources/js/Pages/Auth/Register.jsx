@@ -1,34 +1,67 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Register() {
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
         password_confirmation: '',
     });
+    const [errors, setErrors] = useState({});
+    const [processing, setProcessing] = useState(false);
+    const [status, setStatus] = useState('');
 
-    useEffect(() => {
-        return () => {
-            reset('password', 'password_confirmation');
-        };
-    }, []);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
+        setProcessing(true);
+        setErrors({});
+        setStatus('');
 
-        post(route('register'));
+        try {
+            await axios.post('/register', formData, {
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            });
+            setStatus('Registered successfully.');
+            setFormData({
+                name: '',
+                email: '',
+                password: '',
+                password_confirmation: '',
+            });
+        } catch (error) {
+            setErrors(error?.response?.data?.errors ?? {});
+            setStatus(error?.response?.data?.message ?? 'Registration failed.');
+            setFormData((prev) => ({
+                ...prev,
+                password: '',
+                password_confirmation: '',
+            }));
+        } finally {
+            setProcessing(false);
+        }
     };
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
             <form onSubmit={submit}>
                 <div>
@@ -37,11 +70,11 @@ export default function Register() {
                     <TextInput
                         id="name"
                         name="name"
-                        value={data.name}
+                        value={formData.name}
                         className="mt-1 block w-full"
                         autoComplete="name"
                         isFocused={true}
-                        onChange={(e) => setData('name', e.target.value)}
+                        onChange={handleChange}
                         required
                     />
 
@@ -55,10 +88,10 @@ export default function Register() {
                         id="email"
                         type="email"
                         name="email"
-                        value={data.email}
+                        value={formData.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
+                        onChange={handleChange}
                         required
                     />
 
@@ -72,10 +105,10 @@ export default function Register() {
                         id="password"
                         type="password"
                         name="password"
-                        value={data.password}
+                        value={formData.password}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
-                        onChange={(e) => setData('password', e.target.value)}
+                        onChange={handleChange}
                         required
                     />
 
@@ -89,10 +122,10 @@ export default function Register() {
                         id="password_confirmation"
                         type="password"
                         name="password_confirmation"
-                        value={data.password_confirmation}
+                        value={formData.password_confirmation}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
-                        onChange={(e) => setData('password_confirmation', e.target.value)}
+                        onChange={handleChange}
                         required
                     />
 
@@ -101,7 +134,7 @@ export default function Register() {
 
                 <div className="flex items-center justify-end mt-4">
                     <Link
-                        href={route('login')}
+                        to="/login"
                         className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Already registered?
