@@ -1,0 +1,48 @@
+Register
+- POST
+- /api/register
+- Body:
+    - name (required)
+    - email (required)
+    - password (required, min 8 chars)
+    - phone (optional)
+    - address (optional)
+    - city (optional)
+    - state (optional)
+    - zip (optional)
+    - country (optional)
+    - role (optional)
+
+
+Login
+- POST
+- /api/login
+- Body:
+    - email (required)
+    - password (required)
+
+
+Blogs
+- GET /api/blogs (List all blogs)
+- POST /api/blogs (Create blog)
+    - Title (required)
+    - Content (required)
+    - Image (optional)
+- GET /api/blogs/{id} (Show blog)
+- PUT/PATCH /api/blogs/{id} (Update blog)
+    - Title (required)
+    - Content (required)
+    - Image (optional)
+- DELETE /api/blogs/{id} (Delete blog)
+
+
+Posts (Projects)
+- GET /api/posts (List all posts)
+- POST /api/posts (Create post)
+    - Title (required)
+    - Body (required)
+- GET /api/posts/{id} (Show post)
+- PUT/PATCH /api/posts/{id} (Update post)
+    - Title (required)
+    - Body (required)
+- DELETE /api/posts/{id} (Delete post)
