@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -14,6 +15,7 @@ export default function Login() {
         password: '',
         remember: false,
     });
+
     const [errors, setErrors] = useState({});
     const [processing, setProcessing] = useState(false);
     const [status, setStatus] = useState('');
@@ -26,6 +28,7 @@ export default function Login() {
         }));
     };
 
+    const navigate = useNavigate();
     const submit = async (e) => {
         e.preventDefault();
         setProcessing(true);
@@ -33,14 +36,24 @@ export default function Login() {
         setStatus('');
 
         try {
-            await axios.post('/login', formData, {
-                headers: {
+            const resonse = await axios.post('/api/login', formData, {
+                headers:{
                     Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
+                    'Content-type': 'application/json',
+                }
             });
-            setStatus('Logged in successfully.');
-            setFormData((prev) => ({ ...prev, password: '' }));
+            const data = resonse.data;
+
+            console.log(data);
+            const token = data.access_token;
+            const name = data.user.name;
+            localStorage.setItem('token', token);
+            localStorage.setItem('name', JSON.stringify(name));
+
+
+            navigate('/admin');
+            // setStatus('Logged in successfully.');
+            // setFormData((prev) => ({ ...prev, password: '' }));
         } catch (error) {
             setErrors(error?.response?.data?.errors ?? {});
             setStatus(error?.response?.data?.message ?? 'Login failed.');
@@ -51,6 +64,7 @@ export default function Login() {
     };
 
     return (
+
         <div className='w-full min-h-[80vh] flex flex-col items-center justify-center space-y-8'>
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 

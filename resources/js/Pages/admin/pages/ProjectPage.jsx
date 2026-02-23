@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const ProjectPage = () => {
+    
     return (
         <div className="md:p-8 max-auto max-w-7xl w-full space-y-8">
             <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-between gap-4">

@@ -11,6 +11,7 @@ export default function Register() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: "",
         password: '',
         password_confirmation: '',
     });
@@ -33,12 +34,7 @@ export default function Register() {
         setStatus('');
 
         try {
-            await axios.post('/register', formData, {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
+            await axios.post('/api/register', formData);
             setStatus('Registered successfully.');
             setFormData({
                 name: '',
@@ -60,7 +56,7 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <>
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
             <form onSubmit={submit}>
@@ -88,6 +84,23 @@ export default function Register() {
                         id="email"
                         type="email"
                         name="email"
+                        value={formData.email}
+                        className="mt-1 block w-full"
+                        autoComplete="username"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <InputError message={errors.email} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="phone" value="phone" />
+
+                    <TextInput
+                        id="phone"
+                        type="text"
+                        name="text"
                         value={formData.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
@@ -145,6 +158,6 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }
