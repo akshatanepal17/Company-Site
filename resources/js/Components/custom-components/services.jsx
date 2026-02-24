@@ -6,17 +6,16 @@ const Services = () => {
         <div className='flex w-full h-screen'>
 
             <div className='w-1/2 flex-col pl-28' >
-                <div className='mx-8 my-6'>
+                <div className='mx-8 my-4'>
                     <h1 className='text-4xl text-black font-extrabold px-8 pt-12'>Our Services</h1>
-                    <p className='text-regular text-sm text-black opacity-70 px-8 pt-5'>Braindigit provides end-to-end digitization services <br /> to Startups, SMEs, corporate enterprises and Government level <br />
-                        organizations.</p>
+                    <p className='text-regular text-sm text-black opacity-70 px-8 pt-5'>Braindigit provides end-to-end digitization services <br /> to Startups, SMEs, corporate enterprises and Government level organizations.</p>
                 </div>
 
                 <div className='flex w-2/3 ml-10 px-10 py-8'>
                     <ShoppingCart className='w-8 h-10'/>
                     <div>
                     <h1 className='text-sm text-black font-bold px-8'>Website & e-Commerce</h1>
-                    <p className='text-regular text-sm text-black opacity-70 px-8 pt-2'> Connect prompt,and sell your products and<br /> services online.</p>
+                    <p className='text-regular text-sm text-black opacity-70 px-8 pt-2'> Connect prompt,and sell your products and services online.</p>
                     </div>
                 </div>
 
@@ -25,7 +24,7 @@ const Services = () => {
                     <div>
                     <h1 className='text-sm text-black font-bold px-4'>Custom Web & Mobile App</h1>
                     <p className='text-regular text-sm text-black opacity-70 px-4 pt-2'> Introduce your business and brand with web
-                        <br />and mobile application.</p>
+                      and mobile application.</p>
                     </div>
                 </div>
 
@@ -34,7 +33,7 @@ const Services = () => {
                     <div>
                     <h1 className='text-sm text-black font-bold px-4'>Enterprise Application</h1>
                     <p className='text-regular text-sm text-black opacity-70 px-4'> Streamline business operation across the
-                        <br />organization.</p>
+                        organization.</p>
                     </div>
                 </div>
 
@@ -43,7 +42,7 @@ const Services = () => {
                     <div>
                     <h1 className='text-sm text-black font-bold px-4'>Training & Consulting</h1>
                     <p className='text-regular text-sm text-black opacity-70 px-4'> Get more insight on technical consultation and
-                        <br /> competitive business solution.</p>
+                       competitive business solution.</p>
                     </div>
                 </div>
 
